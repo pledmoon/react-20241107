@@ -1,17 +1,12 @@
-import { RestaurantReviews } from '../restaurant-reviews/RestaurantReviews'
-import { RestaurantMenu } from '../restaurant-menu/RestaurantMenu.jsx'
+import { RestaurantReviews } from '../restaurant-reviews'
+import { RestaurantMenu } from '../restaurant-menu'
 
-export const RestaurantCard = ({ restaurant, isHidden }) => {
+export const RestaurantCard = ({ restaurant }) => {
   return (
-    !isHidden && (
-      <article
-        className="restaurant-card"
-        key={restaurant?.id}
-      >
-        <h2 className="restaurant-card__heading">{restaurant?.name}</h2>
-        {!!restaurant.menu.length && <RestaurantMenu menu={restaurant.menu} />}
-        {!!restaurant.reviews.length && <RestaurantReviews reviews={restaurant.reviews} />}
-      </article>
-    )
+    <article className="restaurant-card">
+      <h2 className="restaurant-card__heading">{restaurant?.name}</h2>
+      {!!restaurant.menu.length && <RestaurantMenu menu={restaurant.menu} />}
+      {!!restaurant.reviews.length && <RestaurantReviews reviews={restaurant.reviews} />}
+    </article>
   )
 }

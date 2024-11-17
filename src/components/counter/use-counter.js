@@ -1,24 +1,18 @@
 import { useState } from 'react'
 
 export const useCounter = () => {
-  const [value, setValue] = useState({ value: 0 })
+  const [value, setValue] = useState(0)
 
   const handleSubtract = () => {
-    setValue((current) => ({
-      ...current,
-      value: current.value > 0 ? current.value - 1 : 0,
-    }))
+    setValue((currentValue) => (currentValue > 0 ? currentValue - 1 : 0))
   }
 
   const handleAdd = () => {
-    setValue((current) => ({
-      ...current,
-      value: current.value < 5 ? current.value + 1 : 5,
-    }))
+    setValue((currentValue) => (currentValue < 5 ? currentValue + 1 : 5))
   }
 
   return {
-    value: value.value,
+    value,
     handleSubtract,
     handleAdd,
   }

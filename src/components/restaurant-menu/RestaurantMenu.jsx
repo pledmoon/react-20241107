@@ -1,4 +1,4 @@
-import { Counter } from '../counter/Counter'
+import { Counter } from '../counter'
 
 export const RestaurantMenu = ({ menu }) => {
   return (

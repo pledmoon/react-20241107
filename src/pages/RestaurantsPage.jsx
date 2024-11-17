@@ -1,11 +1,14 @@
 import { useState } from 'react'
-import { Tabs } from '../components/tabs/Tabs'
+import { Tabs } from '../components/tabs'
+import { RestaurantCard } from '../components/restaurant-card'
 
 export const RestaurantsPage = ({ restaurants, ...rest }) => {
-  const [tab, setTab] = useState(0)
+  const [currentTabId, setCurrentTabId] = useState(restaurants[0]?.id ?? null)
 
-  const handleTabChange = (index) => {
-    setTab(index)
+  const currentTab = restaurants.find((tab) => tab.id === currentTabId)
+
+  const handleTabChange = (tabId) => {
+    setCurrentTabId(tabId)
   }
 
   return restaurants.length ? (
@@ -13,10 +16,12 @@ export const RestaurantsPage = ({ restaurants, ...rest }) => {
       <h1>Restaurants</h1>
 
       <Tabs
-        restaurants={restaurants}
-        currentTab={tab}
+        data={restaurants}
+        currentTabId={currentTabId}
         onTabChange={handleTabChange}
-      />
+      >
+        {currentTab && <RestaurantCard restaurant={currentTab} />}
+      </Tabs>
     </section>
   ) : null
 }
