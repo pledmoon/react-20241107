@@ -20,7 +20,29 @@ export const RestaurantsPage = ({ restaurants, ...rest }) => {
         currentTabId={currentTabId}
         onTabChange={handleTabChange}
       >
-        {currentTab && <RestaurantCard restaurant={currentTab} />}
+        {currentTab && (
+          <>
+            <RestaurantCard
+              key={currentTabId}
+              restaurant={currentTab}
+            />
+          </>
+        )}
+      </Tabs>
+
+      <Tabs
+        data={restaurants}
+        currentTabId={currentTabId}
+        onTabChange={handleTabChange}
+      >
+        {currentTab && (
+          <>
+            <RestaurantCard
+              key={currentTabId}
+              restaurant={currentTab}
+            />
+          </>
+        )}
       </Tabs>
     </section>
   ) : null

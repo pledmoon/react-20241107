@@ -1,4 +1,4 @@
-import { Counter } from '../counter'
+import { RestaurantMenuItem } from '../restaurant-menu-item/RestaurantMenuItem'
 
 export const RestaurantMenu = ({ menu }) => {
   return (
@@ -11,8 +11,7 @@ export const RestaurantMenu = ({ menu }) => {
               key={menu?.id}
               className="restaurant-card__item"
             >
-              <strong>{menu?.name}</strong>
-              <Counter />
+              <RestaurantMenuItem name={menu.name} />
             </li>
           ))}
         </ul>
