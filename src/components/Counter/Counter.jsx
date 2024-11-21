@@ -1,8 +1,11 @@
 import styles from './counter.module.css'
+import classNames from 'classnames'
 
-export const Counter = ({ onCounterChange, value = 0, min = 0, max = 999 }) => {
+export const Counter = ({ onCounterChange, value = 0, min = 0, max = 999, className }) => {
+  const classes = classNames(className, styles.counter)
+
   return (
-    <div className={`${styles['counter']}`}>
+    <div className={classes}>
       <button
         type="button"
         onClick={() => onCounterChange && onCounterChange(value > min ? value - 1 : min)}

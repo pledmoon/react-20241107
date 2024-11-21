@@ -1,0 +1,9 @@
+.restaurantCard__item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.restaurantCard__item strong {
+  min-width: 165px;
+}

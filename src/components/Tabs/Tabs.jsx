@@ -1,7 +1,9 @@
+import styles from './Tabs.module.css'
+
 export const Tabs = ({ data, currentTabId, onTabChange, children }) => {
   return (
-    <div className="tabs">
-      <ul className="tabs__header">
+    <div className={styles.tabs}>
+      <ul className={styles.tabs__header}>
         {data.map((tab) => (
           <li
             className="tabs__item"
@@ -10,7 +12,7 @@ export const Tabs = ({ data, currentTabId, onTabChange, children }) => {
             <button
               type="button"
               onClick={() => onTabChange(tab.id)}
-              className={`tabs__btn ${currentTabId === tab.id ? 'is-active' : ''}`}
+              className={`${styles.tabs__btn} ${currentTabId === tab.id ? styles['is-active'] : ''}`}
             >
               {tab.name}
             </button>

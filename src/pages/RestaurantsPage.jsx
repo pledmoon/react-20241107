@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Tabs } from '../components/tabs'
-import { RestaurantCard } from '../components/restaurant-card'
+import { Tabs } from '../components/Tabs/Tabs'
+import { RestaurantCard } from '../components/RestaurantCard/RestaurantCard'
 
 export const RestaurantsPage = ({ restaurants, ...rest }) => {
   const [currentTabId, setCurrentTabId] = useState(restaurants[0]?.id ?? null)
@@ -25,21 +25,6 @@ export const RestaurantsPage = ({ restaurants, ...rest }) => {
             key={currentTabId}
             restaurant={currentTab}
           />
-        )}
-      </Tabs>
-
-      <Tabs
-        data={restaurants}
-        currentTabId={currentTabId}
-        onTabChange={handleTabChange}
-      >
-        {currentTab && (
-          <>
-            <RestaurantCard
-              key={currentTabId}
-              restaurant={currentTab}
-            />
-          </>
         )}
       </Tabs>
     </section>
