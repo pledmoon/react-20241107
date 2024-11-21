@@ -78,8 +78,3 @@ ul {
 .restaurant-card__review:not(:last-child) {
   margin-bottom: 15px;
 }
-
-.counter {
-  display: flex;
-  gap: 10px;
-}

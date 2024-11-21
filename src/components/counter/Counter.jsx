@@ -1,13 +1,11 @@
-import { useCounter } from './use-counter'
+import styles from './counter.module.css'
 
-export const Counter = () => {
-  const { value, handleSubtract, handleAdd } = useCounter()
-
+export const Counter = ({ onCounterChange, value = 0, min = 0, max = 999 }) => {
   return (
-    <div className="counter">
+    <div className={`${styles['counter']}`}>
       <button
         type="button"
-        onClick={handleSubtract}
+        onClick={() => onCounterChange && onCounterChange(value > min ? value - 1 : min)}
       >
         -
       </button>
@@ -19,7 +17,7 @@ export const Counter = () => {
       />
       <button
         type="button"
-        onClick={handleAdd}
+        onClick={() => onCounterChange && onCounterChange(value < max ? value + 1 : max)}
       >
         +
       </button>
