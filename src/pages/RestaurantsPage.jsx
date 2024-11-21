@@ -21,12 +21,10 @@ export const RestaurantsPage = ({ restaurants, ...rest }) => {
         onTabChange={handleTabChange}
       >
         {currentTab && (
-          <>
-            <RestaurantCard
-              key={currentTabId}
-              restaurant={currentTab}
-            />
-          </>
+          <RestaurantCard
+            key={currentTabId}
+            restaurant={currentTab}
+          />
         )}
       </Tabs>
 
