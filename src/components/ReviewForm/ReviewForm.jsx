@@ -36,13 +36,12 @@ export const ReviewForm = () => {
   }
 
   return (
-    <>
-      <h3>Review Form</h3>
+    <div className={styles.reviewForm}>
+      <h3 className={styles.reviewFormHeading}>Review Form</h3>
       <form
         action="/"
         name="review"
         method="POST"
-        className={styles.reviewForm}
         onSubmit={(e) => {
           e.preventDefault()
         }}
@@ -76,7 +75,7 @@ export const ReviewForm = () => {
           max={5}
           value={rating}
           onCounterChange={handleCounterChange}
-          className="reviewForm__counter"
+          className={styles.reviewFormCounter}
         />
 
         <button
@@ -92,6 +91,6 @@ export const ReviewForm = () => {
           <li>User rating: {rating}</li>
         </ul>
       </form>
-    </>
+    </div>
   )
 }

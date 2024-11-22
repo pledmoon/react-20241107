@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <UIContainer>
-        <div className="header__main">HEADER</div>
+        <div className={styles.headerMain}>HEADER</div>
       </UIContainer>
     </header>
   )

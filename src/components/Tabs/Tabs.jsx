@@ -1,26 +1,27 @@
 import styles from './Tabs.module.css'
+import classNames from 'classnames'
 
 export const Tabs = ({ data, currentTabId, onTabChange, children }) => {
   return (
     <div className={styles.tabs}>
-      <ul className={styles.tabs__header}>
-        {data.map((tab) => (
+      <ul className={styles.tabsHeader}>
+        {data.map(({ name, id }) => (
           <li
-            className="tabs__item"
-            key={tab.id}
+            className={styles.tabsItem}
+            key={id}
           >
             <button
               type="button"
-              onClick={() => onTabChange(tab.id)}
-              className={`${styles.tabs__btn} ${currentTabId === tab.id ? styles['is-active'] : ''}`}
+              onClick={() => onTabChange(id)}
+              className={classNames(styles.tabsBtn, { [styles.isActive]: currentTabId === id })}
             >
-              {tab.name}
+              {name}
             </button>
           </li>
         ))}
       </ul>
 
-      <div className="tabs__panes">{children}</div>
+      <div className={styles.tabsPanes}>{children}</div>
     </div>
   )
 }

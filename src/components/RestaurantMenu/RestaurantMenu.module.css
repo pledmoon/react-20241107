@@ -1,3 +1,7 @@
-.reviewCard__menu li:not(:last-child) {
+.reviewCardMenu li:not(:last-child) {
   margin-bottom: 15px;
+}
+
+.reviewCardHeading {
+  margin-bottom: 20px;
 }

@@ -10,13 +10,13 @@ export const RestaurantMenuItem = ({ name }) => {
   }
 
   return (
-    <div className={styles.restaurantCard__item}>
+    <div className={styles.restaurantCardItem}>
       <strong>{name}</strong>
       <Counter
         value={counterValue}
         max={5}
         onCounterChange={handleCounterChange}
-        className="restaurantCard__counter"
+        className={styles.restaurantCardCounter}
       />
     </div>
   )

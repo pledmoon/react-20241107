@@ -1,19 +1,19 @@
-.tabs__header {
+.tabsHeader {
   margin: 25px 0;
   display: flex;
   gap: 15px;
 }
 
-.tabs__btn {
+.tabsBtn {
   padding: 5px 10px;
   cursor: pointer;
 }
 
-.tabs__btn:hover {
+.tabsBtn:hover {
   opacity: .75;
 }
 
-.tabs__btn.is-active {
+.tabsBtn.isActive {
   pointer-events: none;
   cursor: default;
   text-decoration: underline;

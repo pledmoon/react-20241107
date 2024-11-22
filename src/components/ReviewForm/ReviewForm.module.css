@@ -9,6 +9,10 @@
   margin-bottom: 7px;
 }
 
-.reviewForm > *:not(:last-child) {
+.reviewForm form > *:not(:last-child) {
   margin-bottom: 15px;
+}
+
+.reviewFormHeading {
+  margin-bottom: 20px;
 }

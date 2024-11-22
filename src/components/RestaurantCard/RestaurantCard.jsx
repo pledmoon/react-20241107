@@ -6,7 +6,7 @@ import styles from './RestaurantCard.module.css'
 export const RestaurantCard = ({ restaurant }) => {
   return (
     <article className={styles.restaurantCard}>
-      <h2 className={styles.restaurantCard__heading}>{restaurant?.name}</h2>
+      <h2 className={styles.restaurantCardHeading}>{restaurant?.name}</h2>
       {!!restaurant.menu.length && <RestaurantMenu menu={restaurant.menu} />}
       {!!restaurant.reviews.length && <RestaurantReviews reviews={restaurant.reviews} />}
       <hr />

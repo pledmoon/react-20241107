@@ -2,8 +2,8 @@ import styles from './RestaurantReviews.module.css'
 
 export const RestaurantReviews = ({ reviews }) => {
   return (
-    <div className={styles.reviewCard__reviews}>
-      <h3>Reviews</h3>
+    <div className={styles.reviewCardReviews}>
+      <h3 className={styles.reviewCardHeading}>Reviews</h3>
       {!!reviews.length && (
         <ul>
           {reviews.map((review) => (

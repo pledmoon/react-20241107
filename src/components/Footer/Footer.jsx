@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <UIContainer>
-        <div className="footer__main">&copy; Copyright {new Date().getFullYear()}</div>
+        <div className={styles.footerMain}>&copy; Copyright {new Date().getFullYear()}</div>
       </UIContainer>
     </footer>
   )
