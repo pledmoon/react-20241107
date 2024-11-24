@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import { Counter } from '../counter'
+import { Counter } from '../Counter/Counter'
 import styles from './ReviewForm.module.css'
 
 const INITIAL_STATE = {
@@ -36,58 +36,61 @@ export const ReviewForm = () => {
   }
 
   return (
-    <form
-      action="/"
-      name="review"
-      method="POST"
-      className={`${styles['review-form']}`}
-      onSubmit={(e) => {
-        e.preventDefault()
-      }}
-    >
-      <div>
-        <label htmlFor="f1">Name:</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          id="f1"
-          value={name}
-          onChange={({ target }) => dispatch({ type: SET_NAME_ACTION, payload: target.value })}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="f2">Message:</label>
-        <textarea
-          rows="7"
-          name="message"
-          placeholder="Type your message"
-          id="f2"
-          value={message}
-          onChange={({ target }) => dispatch({ type: SET_MESSAGE_ACTION, payload: target.value })}
-        />
-      </div>
-
-      <Counter
-        min={1}
-        max={5}
-        value={rating}
-        onCounterChange={handleCounterChange}
-      />
-
-      <button
-        type="button"
-        onClick={() => dispatch({ type: RESET_ACTION })}
+    <div className={styles.reviewForm}>
+      <h3 className={styles.reviewFormHeading}>Review Form</h3>
+      <form
+        action="/"
+        name="review"
+        method="POST"
+        onSubmit={(e) => {
+          e.preventDefault()
+        }}
       >
-        Reset
-      </button>
+        <div>
+          <label htmlFor="f1">Name:</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            id="f1"
+            value={name}
+            onChange={({ target }) => dispatch({ type: SET_NAME_ACTION, payload: target.value })}
+          />
+        </div>
 
-      <ul>
-        {name && <li>Username: {name}</li>}
-        {message && <li>Message: {message}</li>}
-        <li>User rating: {rating}</li>
-      </ul>
-    </form>
+        <div>
+          <label htmlFor="f2">Message:</label>
+          <textarea
+            rows="7"
+            name="message"
+            placeholder="Type your message"
+            id="f2"
+            value={message}
+            onChange={({ target }) => dispatch({ type: SET_MESSAGE_ACTION, payload: target.value })}
+          />
+        </div>
+
+        <Counter
+          min={1}
+          max={5}
+          value={rating}
+          onCounterChange={handleCounterChange}
+          className={styles.reviewFormCounter}
+        />
+
+        <button
+          type="button"
+          onClick={() => dispatch({ type: RESET_ACTION })}
+        >
+          Reset
+        </button>
+
+        <ul>
+          {name && <li>Username: {name}</li>}
+          {message && <li>Message: {message}</li>}
+          <li>User rating: {rating}</li>
+        </ul>
+      </form>
+    </div>
   )
 }

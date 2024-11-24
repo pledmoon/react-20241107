@@ -1,0 +1,18 @@
+.restaurantCard {
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  background: #e6e6e6;
+}
+
+.restaurantCard:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.restaurantCard > *:not(:last-child){
+  margin-bottom: 20px;
+}
+
+.restaurantCardSubheading {
+  margin-bottom: 15px;
+}

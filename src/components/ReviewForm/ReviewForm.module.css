@@ -1,14 +1,18 @@
-.review-form {
+.reviewForm {
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 15px;
 }
 
-label {
+.reviewForm label {
   display: block;
   margin-bottom: 7px;
 }
 
-form > *:not(:last-child) {
+.reviewForm form > *:not(:last-child) {
   margin-bottom: 15px;
+}
+
+.reviewFormHeading {
+  margin-bottom: 20px;
 }

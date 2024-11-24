@@ -1,11 +1,12 @@
-import { RestaurantReviews } from '../restaurant-reviews'
-import { RestaurantMenu } from '../restaurant-menu'
+import { RestaurantReviews } from '../RestaurantReviews/RestaurantReviews'
+import { RestaurantMenu } from '../RestaurantMenu/RestaurantMenu'
 import { ReviewForm } from '../ReviewForm/ReviewForm'
+import styles from './RestaurantCard.module.css'
 
 export const RestaurantCard = ({ restaurant }) => {
   return (
-    <article className="restaurant-card">
-      <h2 className="restaurant-card__heading">{restaurant?.name}</h2>
+    <article className={styles.restaurantCard}>
+      <h2 className={styles.restaurantCardHeading}>{restaurant?.name}</h2>
       {!!restaurant.menu.length && <RestaurantMenu menu={restaurant.menu} />}
       {!!restaurant.reviews.length && <RestaurantReviews reviews={restaurant.reviews} />}
       <hr />

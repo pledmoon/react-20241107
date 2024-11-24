@@ -1,0 +1,9 @@
+.counter {
+  display: flex;
+  gap: 7px;
+}
+
+.counter button {
+  min-width: 20px;
+  cursor: pointer;
+}
