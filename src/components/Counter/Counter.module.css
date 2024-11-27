@@ -6,4 +6,6 @@
 .counter button {
   min-width: 20px;
   cursor: pointer;
+  padding-left: 0;
+  padding-right: 0;
 }

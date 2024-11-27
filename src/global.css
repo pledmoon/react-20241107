@@ -17,4 +17,12 @@ ul {
 body {
   font: 16px Arial, sans-serif;
   background: #eee;
+  color: #333;
+}
+
+[data-mode="dark"] {
+  body {
+    background: #333;
+    color: #fff;
+  }
 }

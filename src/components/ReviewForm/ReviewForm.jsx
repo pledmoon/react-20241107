@@ -1,6 +1,7 @@
 import { useReducer } from 'react'
 import { Counter } from '../Counter/Counter'
 import styles from './ReviewForm.module.css'
+import { UIButton } from '../UIButton/UIButton'
 
 const INITIAL_STATE = {
   name: '',
@@ -78,12 +79,12 @@ export const ReviewForm = () => {
           className={styles.reviewFormCounter}
         />
 
-        <button
+        <UIButton
           type="button"
           onClick={() => dispatch({ type: RESET_ACTION })}
         >
           Reset
-        </button>
+        </UIButton>
 
         <ul>
           {name && <li>Username: {name}</li>}
