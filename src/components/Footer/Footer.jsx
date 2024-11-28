@@ -1,11 +1,10 @@
-import { useContext } from 'react'
 import { UIContainer } from '../UIContainer/UIContainer'
 import styles from './Footer.module.css'
 import classNames from 'classnames'
-import { ThemeContext } from '../../contexts/ThemeContext.js'
+import { useThemeContext } from '../../contexts/ThemeContext'
 
 export const Footer = () => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useThemeContext()
 
   return (
     <footer className={classNames(styles.footer, { [styles.isDark]: theme === 'dark' })}>

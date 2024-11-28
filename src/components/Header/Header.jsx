@@ -1,14 +1,13 @@
-import { useContext } from 'react'
 import { UIContainer } from '../UIContainer/UIContainer'
 import styles from './Header.module.css'
-import { ThemeContext } from '../../contexts/ThemeContext'
 import { UIButton } from '../UIButton/UIButton'
 import classNames from 'classnames'
-import { UserContext } from '../../contexts/UserContext.js'
+import { useThemeContext } from '../../contexts/ThemeContext'
+import { useUserContext } from '../../contexts/UserContext'
 
 export const Header = () => {
-  const { theme, setTheme } = useContext(ThemeContext)
-  const { username, setUsername } = useContext(UserContext)
+  const { theme, setTheme } = useThemeContext()
+  const { username, setUsername } = useUserContext()
 
   return (
     <header className={classNames(styles.header, { [styles.isDark]: theme === 'dark' })}>

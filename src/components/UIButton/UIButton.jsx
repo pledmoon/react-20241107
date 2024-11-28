@@ -1,10 +1,9 @@
-import { useContext } from 'react'
 import styles from './UiButton.module.css'
 import classNames from 'classnames'
-import { ThemeContext } from '../../contexts/ThemeContext.js'
+import { useThemeContext } from '../../contexts/ThemeContext'
 
 export const UIButton = ({ className, onClick, children }) => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useThemeContext()
 
   return (
     <button

@@ -1,15 +1,14 @@
-import { useContext } from 'react'
 import { RestaurantReviews } from '../RestaurantReviews/RestaurantReviews'
 import { RestaurantMenu } from '../RestaurantMenu/RestaurantMenu'
 import { ReviewForm } from '../ReviewForm/ReviewForm'
 import styles from './RestaurantCard.module.css'
 import classNames from 'classnames'
-import { ThemeContext } from '../../contexts/ThemeContext.js'
-import { UserContext } from '../../contexts/UserContext.js'
+import { useThemeContext } from '../../contexts/ThemeContext'
+import { useUserContext } from '../../contexts/UserContext'
 
 export const RestaurantCard = ({ restaurant }) => {
-  const { theme } = useContext(ThemeContext)
-  const { username } = useContext(UserContext)
+  const { theme } = useThemeContext()
+  const { username } = useUserContext()
 
   return (
     <article className={classNames(styles.restaurantCard, { [styles.isDark]: theme === 'dark' })}>

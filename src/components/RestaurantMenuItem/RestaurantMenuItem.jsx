@@ -1,11 +1,10 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { Counter } from '../Counter/Counter'
 import styles from './RestaurantMenuItem.module.css'
-import { UserContext } from '../../contexts/UserContext.js'
+import { useUserContext } from '../../contexts/UserContext'
 
 export const RestaurantMenuItem = ({ name }) => {
-  const { username } = useContext(UserContext)
-
+  const { username } = useUserContext()
   const [counterValue, setCounterValue] = useState(0)
 
   const handleCounterChange = (value) => {
