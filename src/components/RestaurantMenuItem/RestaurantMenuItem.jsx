@@ -4,7 +4,7 @@ import styles from './RestaurantMenuItem.module.css'
 import { useUserContext } from '../../contexts/UserContext'
 
 export const RestaurantMenuItem = ({ name }) => {
-  const { username } = useUserContext()
+  const { userAuth } = useUserContext()
   const [counterValue, setCounterValue] = useState(0)
 
   const handleCounterChange = (value) => {
@@ -14,7 +14,7 @@ export const RestaurantMenuItem = ({ name }) => {
   return (
     <div className={styles.restaurantCardItem}>
       <strong>{name}</strong>
-      {username && (
+      {userAuth.isAuth && (
         <Counter
           value={counterValue}
           max={5}

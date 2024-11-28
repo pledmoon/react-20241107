@@ -7,7 +7,7 @@ import { useUserContext } from '../../contexts/UserContext'
 
 export const Header = () => {
   const { theme, setTheme } = useThemeContext()
-  const { username, setUsername } = useUserContext()
+  const { userAuth, setUserAuth } = useUserContext()
 
   return (
     <header className={classNames(styles.header, { [styles.isDark]: theme === 'dark' })}>
@@ -16,14 +16,25 @@ export const Header = () => {
           <div>HEADER</div>
 
           <div className={styles.headerAside}>
-            {!username && <UIButton onClick={() => setUsername('John Smith')}>Log In</UIButton>}
+            {!userAuth.isAuth && (
+              <UIButton
+                onClick={() =>
+                  setUserAuth({
+                    isAuth: true,
+                    name: 'John Smith',
+                  })
+                }
+              >
+                Log In
+              </UIButton>
+            )}
 
-            {username && (
+            {userAuth.isAuth && (
               <>
                 <div>
-                  Welcome <strong>{username}</strong>
+                  Welcome <strong>{userAuth.name}</strong>
                 </div>
-                <UIButton onClick={() => setUsername(null)}>Log Out</UIButton>
+                <UIButton onClick={() => setUserAuth({ isAuth: false })}>Log Out</UIButton>
               </>
             )}
 

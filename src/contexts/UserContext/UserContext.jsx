@@ -3,13 +3,13 @@ import { createContext, useState } from 'react'
 const UserContext = createContext()
 
 const UserContextProvider = ({ children }) => {
-  const [username, setUsername] = useState(null)
+  const [userAuth, setUserAuth] = useState({ isAuth: false })
 
   return (
     <UserContext.Provider
       value={{
-        username,
-        setUsername,
+        userAuth,
+        setUserAuth,
       }}
     >
       {children}

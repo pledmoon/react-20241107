@@ -8,7 +8,7 @@ import { useUserContext } from '../../contexts/UserContext'
 
 export const RestaurantCard = ({ restaurant }) => {
   const { theme } = useThemeContext()
-  const { username } = useUserContext()
+  const { userAuth } = useUserContext()
 
   return (
     <article className={classNames(styles.restaurantCard, { [styles.isDark]: theme === 'dark' })}>
@@ -16,7 +16,7 @@ export const RestaurantCard = ({ restaurant }) => {
       {!!restaurant.menu.length && <RestaurantMenu menu={restaurant.menu} />}
       {!!restaurant.reviews.length && <RestaurantReviews reviews={restaurant.reviews} />}
       <hr />
-      {username && <ReviewForm />}
+      {userAuth.isAuth && <ReviewForm />}
     </article>
   )
 }
