@@ -1,3 +1,4 @@
+import { UIButton } from '../UIButton/UIButton'
 import styles from './Tabs.module.css'
 import classNames from 'classnames'
 
@@ -10,13 +11,12 @@ export const Tabs = ({ data, currentTabId, onTabChange, children }) => {
             className={styles.tabsItem}
             key={id}
           >
-            <button
-              type="button"
-              onClick={() => onTabChange(id)}
+            <UIButton
               className={classNames(styles.tabsBtn, { [styles.isActive]: currentTabId === id })}
+              onClick={() => onTabChange(id)}
             >
               {name}
-            </button>
+            </UIButton>
           </li>
         ))}
       </ul>

@@ -16,3 +16,7 @@
 .restaurantCardSubheading {
   margin-bottom: 15px;
 }
+
+.restaurantCard.isDark {
+  background: #777;
+}

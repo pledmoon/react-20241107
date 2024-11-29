@@ -1,11 +1,51 @@
 import { UIContainer } from '../UIContainer/UIContainer'
 import styles from './Header.module.css'
+import { UIButton } from '../UIButton/UIButton'
+import classNames from 'classnames'
+import { useThemeContext } from '../../contexts/ThemeContext'
+import { useUserContext } from '../../contexts/UserContext'
 
 export const Header = () => {
+  const { theme, setTheme } = useThemeContext()
+  const { userAuth, setUserAuth } = useUserContext()
+
   return (
-    <header className={styles.header}>
+    <header className={classNames(styles.header, { [styles.isDark]: theme === 'dark' })}>
       <UIContainer>
-        <div>HEADER</div>
+        <div className={styles.headerMain}>
+          <div>HEADER</div>
+
+          <div className={styles.headerAside}>
+            {!userAuth.isAuth && (
+              <UIButton
+                onClick={() =>
+                  setUserAuth({
+                    isAuth: true,
+                    name: 'John Smith',
+                  })
+                }
+              >
+                Log In
+              </UIButton>
+            )}
+
+            {userAuth.isAuth && (
+              <>
+                <div>
+                  Welcome <strong>{userAuth.name}</strong>
+                </div>
+                <UIButton onClick={() => setUserAuth({ isAuth: false })}>Log Out</UIButton>
+              </>
+            )}
+
+            <UIButton
+              type="button"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            >
+              {theme}
+            </UIButton>
+          </div>
+        </div>
       </UIContainer>
     </header>
   )
