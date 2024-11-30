@@ -1,5 +1,5 @@
 import styles from './RestaurantReviews.module.css'
-import { Review } from '../Review/Review'
+import { ReviewContainer } from '../Review/ReviewContainer'
 
 export const RestaurantReviews = ({ reviews }) => {
   return (
@@ -9,7 +9,7 @@ export const RestaurantReviews = ({ reviews }) => {
         <ul>
           {reviews.map((review) => (
             <li key={review}>
-              <Review id={review} />
+              <ReviewContainer id={review} />
             </li>
           ))}
         </ul>

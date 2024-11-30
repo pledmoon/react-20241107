@@ -1,5 +1,5 @@
 import styles from './RestaurantMenu.module.css'
-import { RestaurantMenuItem } from '../RestaurantMenuItem/RestaurantMenuItem'
+import { RestaurantMenuItemContainer } from '../RestaurantMenuItem/RestaurantMenuItemContainer'
 
 export const RestaurantMenu = ({ menu }) => {
   return (
@@ -9,7 +9,7 @@ export const RestaurantMenu = ({ menu }) => {
         <ul>
           {menu.map((menu) => (
             <li key={menu}>
-              <RestaurantMenuItem id={menu} />
+              <RestaurantMenuItemContainer id={menu} />
             </li>
           ))}
         </ul>

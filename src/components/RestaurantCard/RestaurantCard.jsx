@@ -1,6 +1,3 @@
-import { useSelector } from 'react-redux'
-import { selectRestaurantById } from '../../redux/entities/restaurants-slice'
-
 import { useThemeContext } from '../../contexts/ThemeContext'
 import { useUserContext } from '../../contexts/UserContext'
 import classNames from 'classnames'
@@ -9,11 +6,11 @@ import { RestaurantReviews } from '../RestaurantReviews/RestaurantReviews'
 import { RestaurantMenu } from '../RestaurantMenu/RestaurantMenu'
 import { ReviewForm } from '../ReviewForm/ReviewForm'
 
-export const RestaurantCard = ({ id }) => {
+export const RestaurantCard = ({ data }) => {
   const { theme } = useThemeContext()
   const { userAuth } = useUserContext()
 
-  const { name, menu, reviews } = useSelector((state) => selectRestaurantById(state, id))
+  const { name, menu, reviews } = data
 
   return (
     <article className={classNames(styles.restaurantCard, { [styles.isDark]: theme === 'dark' })}>
