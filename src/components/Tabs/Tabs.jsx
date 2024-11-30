@@ -1,12 +1,16 @@
-import { UIButton } from '../UIButton/UIButton'
-import styles from './Tabs.module.css'
+import { useSelector } from 'react-redux'
+import { selectRestaurantById } from '../../redux/entities/restaurants-slice'
 import classNames from 'classnames'
+import styles from './Tabs.module.css'
+import { UIButton } from '../UIButton/UIButton'
 
-export const Tabs = ({ data, currentTabId, onTabChange, children }) => {
+export const Tabs = ({ ids, currentTabId, onTabChange, children }) => {
+  const { name } = useSelector((state) => selectRestaurantById(state, currentTabId))
+
   return (
     <div className={styles.tabs}>
       <ul className={styles.tabsHeader}>
-        {data.map(({ name, id }) => (
+        {ids.map((id) => (
           <li
             className={styles.tabsItem}
             key={id}

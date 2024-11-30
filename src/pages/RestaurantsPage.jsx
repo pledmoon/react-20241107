@@ -1,29 +1,31 @@
 import { useState } from 'react'
+
+import { useSelector } from 'react-redux'
+import { selectRestaurantsIds } from '../redux/entities/restaurants-slice'
 import { Tabs } from '../components/Tabs/Tabs'
 import { RestaurantCard } from '../components/RestaurantCard/RestaurantCard'
 
-export const RestaurantsPage = ({ restaurants, ...rest }) => {
-  const [currentTabId, setCurrentTabId] = useState(restaurants[0]?.id ?? null)
-
-  const currentTab = restaurants.find((tab) => tab.id === currentTabId)
+export const RestaurantsPage = ({ ...rest }) => {
+  const restaurantsIds = useSelector(selectRestaurantsIds)
+  const [currentTabId, setCurrentTabId] = useState(restaurantsIds[0] ?? null)
 
   const handleTabChange = (tabId) => {
     setCurrentTabId(tabId)
   }
 
-  return restaurants.length ? (
+  return restaurantsIds.length ? (
     <section {...rest}>
       <h1>Restaurants</h1>
 
       <Tabs
-        data={restaurants}
+        ids={restaurantsIds}
         currentTabId={currentTabId}
         onTabChange={handleTabChange}
       >
-        {currentTab && (
+        {currentTabId && (
           <RestaurantCard
             key={currentTabId}
-            restaurant={currentTab}
+            id={currentTabId}
           />
         )}
       </Tabs>
