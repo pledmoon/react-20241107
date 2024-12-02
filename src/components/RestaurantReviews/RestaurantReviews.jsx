@@ -1,4 +1,5 @@
 import styles from './RestaurantReviews.module.css'
+import { ReviewContainer } from '../Review/ReviewContainer'
 
 export const RestaurantReviews = ({ reviews }) => {
   return (
@@ -7,11 +8,8 @@ export const RestaurantReviews = ({ reviews }) => {
       {!!reviews.length && (
         <ul>
           {reviews.map((review) => (
-            <li key={review?.id}>
-              <strong>{review.user}</strong>
-              <div>
-                {review?.text} ({review.rating}/5)
-              </div>
+            <li key={review}>
+              <ReviewContainer id={review} />
             </li>
           ))}
         </ul>
