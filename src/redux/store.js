@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { restaurantsSlice } from './entities/restaurants-slice.js'
-import { dishesSlice } from './entities/dishes-slice.js'
-import { reviewsSlice } from './entities/reviews-slice.js'
-import { usersSlice } from './entities/users-slice.js'
-import { cartSlice } from './ui/cart/cart-slice.js'
+import { restaurantsSlice } from './entities/restaurants-slice'
+import { dishesSlice } from './entities/dishes-slice'
+import { reviewsSlice } from './entities/reviews-slice'
+import { usersSlice } from './entities/users-slice'
+import { cartSlice } from './ui/cart/cart-slice'
 
 export const store = configureStore({
   reducer: {

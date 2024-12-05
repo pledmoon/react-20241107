@@ -5,13 +5,7 @@ import { RestaurantCard } from './RestaurantCard'
 
 export const RestaurantCardContainer = () => {
   const { restaurantId } = useParams()
-  const { name, menu, reviews } = useSelector((state) => selectRestaurantById(state, restaurantId))
-
-  const data = {
-    name,
-    menu,
-    reviews,
-  }
+  const { name } = useSelector((state) => selectRestaurantById(state, restaurantId))
 
   return (
     <>
@@ -27,5 +21,4 @@ export const RestaurantCardContainer = () => {
       </RestaurantCard>
     </>
   )
-  // return <RestaurantCard data={data} />
 }
