@@ -4,6 +4,7 @@ import { UIButton } from '../UIButton/UIButton'
 import classNames from 'classnames'
 import { useThemeContext } from '../../contexts/ThemeContext'
 import { useUserContext } from '../../contexts/UserContext'
+import { TopNav } from '../TopNav/TopNav'
 
 export const Header = () => {
   const { theme, setTheme } = useThemeContext()
@@ -13,7 +14,11 @@ export const Header = () => {
     <header className={classNames(styles.header, { [styles.isDark]: theme === 'dark' })}>
       <UIContainer>
         <div className={styles.headerMain}>
-          <div>HEADER</div>
+          <div className={styles.headerCol}>
+            <div>LOGO</div>
+
+            <TopNav className={styles.headerNav} />
+          </div>
 
           <div className={styles.headerAside}>
             {!userAuth.isAuth && (

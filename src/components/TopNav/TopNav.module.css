@@ -1,0 +1,19 @@
+.nav ul {
+  display: flex;
+  gap: 10px;
+}
+
+.nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+.nav a[class*="active"] {
+  text-decoration: underline;
+  cursor: default;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}

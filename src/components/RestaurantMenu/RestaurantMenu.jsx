@@ -4,12 +4,13 @@ import { RestaurantMenuItemContainer } from '../RestaurantMenuItem/RestaurantMen
 export const RestaurantMenu = ({ menu }) => {
   return (
     <div className={styles.reviewCardMenu}>
-      <h3 className={styles.reviewCardHeading}>Menu</h3>
+      <h3>Menu</h3>
+      <br />
       {!!menu.length && (
         <ul>
-          {menu.map((menu) => (
-            <li key={menu}>
-              <RestaurantMenuItemContainer id={menu} />
+          {menu.map((id) => (
+            <li key={id}>
+              <RestaurantMenuItemContainer id={id} />
             </li>
           ))}
         </ul>
