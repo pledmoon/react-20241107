@@ -4,8 +4,14 @@
   gap: 15px;
 }
 
-.tabsBtn.isActive {
+.tabsBtn {
+  color: #333;
+  text-decoration: none;
+}
+
+.tabsBtn[class*="active"] {
   pointer-events: none;
   cursor: default;
   text-decoration: underline;
+  font-weight: bold;
 }

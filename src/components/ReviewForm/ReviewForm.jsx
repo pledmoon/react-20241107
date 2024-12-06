@@ -32,7 +32,11 @@ function reducer(state, { type, payload }) {
 export const ReviewForm = () => {
   const [{ name, message, rating }, dispatch] = useReducer(reducer, INITIAL_STATE)
 
-  const handleCounterChange = (value) => {
+  const increment = (value) => {
+    dispatch({ type: SET_RATING_ACTION, payload: value })
+  }
+
+  const decrement = (value) => {
     dispatch({ type: SET_RATING_ACTION, payload: value })
   }
 
@@ -75,7 +79,8 @@ export const ReviewForm = () => {
           min={1}
           max={5}
           value={rating}
-          onCounterChange={handleCounterChange}
+          increment={increment}
+          decrement={decrement}
           className={styles.reviewFormCounter}
         />
 

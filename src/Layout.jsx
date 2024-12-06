@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Outlet } from 'react-router'
 import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
 import { ScrollProgressBar } from './components/ScrollProgressBar/ScrollProgressBar'
@@ -6,7 +7,7 @@ import { UIContainer } from './components/UIContainer/UIContainer'
 import styles from './Layout.module.css'
 import { useThemeContext } from './contexts/ThemeContext'
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
   const { theme } = useThemeContext()
 
   useEffect(() => {
@@ -14,16 +15,18 @@ export const Layout = ({ children }) => {
   }, [theme])
 
   return (
-    <div>
+    <>
       <ScrollProgressBar />
 
       <Header />
 
       <main className={styles.main}>
-        <UIContainer>{children}</UIContainer>
+        <UIContainer>
+          <Outlet />
+        </UIContainer>
       </main>
 
       <Footer />
-    </div>
+    </>
   )
 }

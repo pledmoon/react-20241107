@@ -5,5 +5,10 @@ import { RestaurantMenuItem } from './RestaurantMenuItem'
 export const RestaurantMenuItemContainer = ({ id }) => {
   const { name } = useSelector((state) => selectDishById(state, id))
 
-  return <RestaurantMenuItem name={name} />
+  return (
+    <RestaurantMenuItem
+      name={name}
+      id={id}
+    />
+  )
 }
