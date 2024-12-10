@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useParams, NavLink, Outlet } from 'react-router'
-import { selectRestaurantById } from '../../redux/entities/restaurants-slice'
+import { selectRestaurantById } from '../../redux/entities/restaurants/restaurants-slice'
 import { RestaurantCard } from './RestaurantCard'
 
 export const RestaurantCardContainer = () => {
