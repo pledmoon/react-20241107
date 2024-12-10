@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router'
-import { selectRestaurantById } from '../../redux/entities/restaurants-slice'
+import { selectRestaurantById } from '../../redux/entities/restaurants/restaurants-slice'
 import styles from '../Tabs/Tabs.module.css'
 
 export const TabItem = ({ id }) => {
