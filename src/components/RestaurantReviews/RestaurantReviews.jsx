@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux'
 import { useUserContext } from '../../contexts/UserContext'
 import styles from './RestaurantReviews.module.css'
 import { ReviewContainer } from '../Review/ReviewContainer'
-import { selectRestaurantById } from '../../redux/entities/restaurants-slice'
+import { selectRestaurantById } from '../../redux/entities/restaurants/restaurants-slice'
 import { ReviewForm } from '../ReviewForm/ReviewForm'
 
 export const RestaurantReviews = () => {
   const { restaurantId } = useParams()
+
   const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId))
   const { reviews } = restaurant
   const { userAuth } = useUserContext()

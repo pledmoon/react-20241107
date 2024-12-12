@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { Counter } from '../components/Counter/Counter'
-import { selectDishById } from '../redux/entities/dishes-slice'
+import { selectDishById } from '../redux/entities/dishes/dishes-slice'
 import { useUserContext } from '../contexts/UserContext'
 import { addToCart, removeFromCart, selectCartItemAmountById } from '../redux/ui/cart/cart-slice'
 
