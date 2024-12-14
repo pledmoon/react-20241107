@@ -29,7 +29,7 @@ function reducer(state, { type, payload }) {
   }
 }
 
-export const ReviewForm = () => {
+export const ReviewForm = ({ onAddReview }) => {
   const [{ name, message, rating }, dispatch] = useReducer(reducer, INITIAL_STATE)
 
   const increment = (value) => {
@@ -40,6 +40,21 @@ export const ReviewForm = () => {
     dispatch({ type: SET_RATING_ACTION, payload: value })
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    const review = {
+      name,
+      text: message,
+      rating,
+      userId: 'a304959a-76c0-4b34-954a-b38dbf310360',
+    }
+
+    onAddReview(review)
+
+    dispatch({ type: RESET_ACTION })
+  }
+
   return (
     <div className={styles.reviewForm}>
       <h3 className={styles.reviewFormHeading}>Review Form</h3>
@@ -47,9 +62,7 @@ export const ReviewForm = () => {
         action="/"
         name="review"
         method="POST"
-        onSubmit={(e) => {
-          e.preventDefault()
-        }}
+        onSubmit={handleSubmit}
       >
         <div>
           <label htmlFor="f1">Name:</label>
@@ -90,6 +103,10 @@ export const ReviewForm = () => {
         >
           Reset
         </UIButton>
+
+        <br />
+
+        <UIButton type="submit">Submit</UIButton>
 
         <ul>
           {name && <li>Username: {name}</li>}

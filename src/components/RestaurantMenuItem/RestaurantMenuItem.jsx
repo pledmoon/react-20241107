@@ -5,7 +5,8 @@ import styles from './RestaurantMenuItem.module.css'
 import { useUserContext } from '../../contexts/UserContext'
 import { addToCart, removeFromCart, selectCartItemAmountById } from '../../redux/ui/cart/cart-slice'
 
-export const RestaurantMenuItem = ({ name, id }) => {
+export const RestaurantMenuItem = ({ menuItem }) => {
+  const { name, id } = menuItem
   const { userAuth } = useUserContext()
 
   const dispatch = useDispatch()

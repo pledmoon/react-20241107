@@ -1,14 +1,15 @@
 import { useParams } from 'react-router'
-import { useSelector } from 'react-redux'
-import { selectRestaurantById } from '../../redux/entities/restaurants/restaurants-slice'
 import { RestaurantMenu } from '../RestaurantMenu/RestaurantMenu'
+import { useGetDishesByRestaurantIdQuery } from '@/redux/services/api'
 
 export const RestaurantDishes = () => {
   const { restaurantId } = useParams()
 
-  const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId))
+  const { data, isLoading, isError } = useGetDishesByRestaurantIdQuery(restaurantId)
 
-  const { menu } = restaurant
+  if (isLoading) return 'Loading...'
 
-  return <RestaurantMenu menu={menu} />
+  if (isError) return 'Error'
+
+  return <RestaurantMenu menu={data} />
 }

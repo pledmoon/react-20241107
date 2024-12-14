@@ -1,14 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { Counter } from '../components/Counter/Counter'
-import { selectDishById } from '../redux/entities/dishes/dishes-slice'
 import { useUserContext } from '../contexts/UserContext'
 import { addToCart, removeFromCart, selectCartItemAmountById } from '../redux/ui/cart/cart-slice'
+import { useGetDishByDishIdQuery } from '@/redux/services/api'
 
 export const DishDetail = () => {
   const { userAuth } = useUserContext()
 
   const { dishId } = useParams()
+  const { data, isLoading, isError } = useGetDishByDishIdQuery(dishId)
 
   const dispatch = useDispatch()
   const counterValue = useSelector((state) => selectCartItemAmountById(state, dishId)) || 0
@@ -16,8 +17,11 @@ export const DishDetail = () => {
   const increment = (val) => dispatch(addToCart({ id: dishId, val }))
   const decrement = (val) => dispatch(removeFromCart({ id: dishId, val }))
 
-  const dish = useSelector((state) => selectDishById(state, dishId))
-  const { name, ingredients, price } = dish
+  if (isLoading) return 'Loading...'
+
+  if (isError) return 'Error'
+
+  const { name, ingredients, price } = data
 
   return (
     <div>

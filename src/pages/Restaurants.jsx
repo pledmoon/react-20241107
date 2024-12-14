@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router'
-import { TabsContainer } from '../components/Tabs/TabsContainer'
+import { Tabs } from '../components/Tabs/Tabs'
 
 export const Restaurants = () => {
   return (
-    <TabsContainer>
+    <Tabs>
       <Outlet />
-    </TabsContainer>
+    </Tabs>
   )
 }
