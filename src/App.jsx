@@ -5,7 +5,7 @@ import './global.css'
 import { Layout } from './Layout'
 import { Homepage } from './pages/Homepage'
 import { Restaurants } from './pages/Restaurants'
-import { RestaurantCardContainer } from './components/RestaurantCard/RestaurantCardContainer'
+import { RestaurantCard } from './components/RestaurantCard/RestaurantCard'
 import { RestaurantDishes } from './components/RestaurantDishes/RestaurantDishes'
 import { RestaurantReviews } from './components/RestaurantReviews/RestaurantReviews'
 import { DishDetail } from './pages/DishDetail'
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <Restaurants />,
         children: [
           {
-            element: <RestaurantCardContainer />,
+            element: <RestaurantCard />,
             path: ':restaurantId',
             children: [
               {

@@ -1,17 +1,25 @@
 import { useParams } from 'react-router'
-import { useSelector } from 'react-redux'
 import { useUserContext } from '../../contexts/UserContext'
 import styles from './RestaurantReviews.module.css'
-import { ReviewContainer } from '../Review/ReviewContainer'
-import { selectRestaurantById } from '../../redux/entities/restaurants/restaurants-slice'
+import { Review } from '../Review/Review'
 import { ReviewForm } from '../ReviewForm/ReviewForm'
+import { useGetReviewsByRestaurantIdQuery, useAddReviewMutation } from '@/redux/services/api'
 
 export const RestaurantReviews = () => {
+  const { userAuth } = useUserContext()
+
   const { restaurantId } = useParams()
 
-  const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId))
-  const { reviews } = restaurant
-  const { userAuth } = useUserContext()
+  const { data, isLoading, isError } = useGetReviewsByRestaurantIdQuery(restaurantId)
+  const [addReview, { isLoading: isLoadingForm }] = useAddReviewMutation()
+
+  if (isLoading || isLoadingForm) return 'Loading...'
+
+  if (isError) return 'Error'
+
+  const handleAddReview = (review) => {
+    addReview({ restaurantId: restaurantId, review })
+  }
 
   return (
     <div className={styles.reviewCardReviews}>
@@ -19,17 +27,17 @@ export const RestaurantReviews = () => {
 
       <br />
 
-      {!!reviews.length && (
+      {!!data.length && (
         <ul>
-          {reviews.map((review) => (
-            <li key={review}>
-              <ReviewContainer id={review} />
+          {data.map((review) => (
+            <li key={review.id}>
+              <Review review={review} />
             </li>
           ))}
         </ul>
       )}
 
-      {userAuth.isAuth && <ReviewForm />}
+      {userAuth.isAuth && <ReviewForm onAddReview={handleAddReview} />}
     </div>
   )
 }

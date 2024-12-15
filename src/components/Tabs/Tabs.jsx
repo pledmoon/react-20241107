@@ -1,17 +1,29 @@
 import { Outlet } from 'react-router'
 import styles from './Tabs.module.css'
 import { TabItem } from '../TabItem/TabItem'
+import { useGetRestaurantsQuery } from '@/redux/services/api'
 
-export const Tabs = ({ ids }) => {
+export const Tabs = () => {
+  const { data, isLoading, isError } = useGetRestaurantsQuery()
+
+  if (isLoading) return 'Loading...'
+
+  if (isError) return 'Error'
+
+  if (!data.length) return null
+
   return (
     <div className={styles.tabs}>
       <ul className={styles.tabsHeader}>
-        {ids.map((id) => (
+        {data.map((restaurant) => (
           <li
             className={styles.tabsItem}
-            key={id}
+            key={restaurant.id}
           >
-            <TabItem id={id} />
+            <TabItem
+              name={restaurant.name}
+              id={restaurant.id}
+            />
           </li>
         ))}
       </ul>

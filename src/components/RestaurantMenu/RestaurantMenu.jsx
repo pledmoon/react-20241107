@@ -1,17 +1,20 @@
 import styles from './RestaurantMenu.module.css'
-import { RestaurantMenuItemContainer } from '../RestaurantMenuItem/RestaurantMenuItemContainer'
+import { RestaurantMenuItem } from '../RestaurantMenuItem/RestaurantMenuItem'
 
 export const RestaurantMenu = ({ menu }) => {
   return (
     <div className={styles.reviewCardMenu}>
       <h3>Menu</h3>
+
       <br />
+
       {!!menu.length && (
         <ul>
-          {menu.map((id) => (
-            <li key={id}>
-              <RestaurantMenuItemContainer id={id} />
-            </li>
+          {menu.map((menuItem) => (
+            <RestaurantMenuItem
+              key={menuItem.id}
+              menuItem={menuItem}
+            />
           ))}
         </ul>
       )}
